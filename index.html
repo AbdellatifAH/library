@@ -8,11 +8,31 @@
     <link rel="stylesheet" href="./style.css">
     <script src="./jvs.js" defer></script>
 </head>
-<div class="container">
-
-</div>
 
 <body>
+    <div class="container">
+    </div>
+    <!-- A modal dialog containing a form -->
+    <dialog id="favDialog">
+        <form>
+            <label for="title">Book Title: </label><input id="title" type="text">
+            <label for="author">Book Author: </label><input id="author" type="text">
+            <label for="pages">Book Pages: </label><input id="pages" type="number">
+            <label for="read">
+                Have you read this Book:
+                <select id="read">
+                    <option>No</option>
+                    <option>Yes</option>
+                </select>
+            </label>
+            <div>
+                <button value="cancel" formmethod="dialog">Cancel</button>
+                <button id="confirmBtn" value="default">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+    <button id="addBook">Add a Book</button>
+
 
 </body>
 
