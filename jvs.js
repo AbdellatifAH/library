@@ -26,4 +26,18 @@ function addBookToLibrary() {
 myLibrary.push(new Book("The Hobbit", "J.R.R", "255", false));
 myLibrary.push(new Book("The Lord Of The Rings", "J.R.R", "655", false));
 myLibrary.push(new Book("A Game Of Thrones", "George R.R. Martin", "698", true));
+myLibrary.push(new Book("A Clash OF Kings", "George R.R. Martin", "698", true));
+myLibrary.push(new Book("A Song Of Ice And Fire", "George R.R. Martin", "698", true));
 
+function displayBooks() {
+
+    const container = document.querySelector(".container");
+    for (let i = 0; i < myLibrary.length; i++) {
+        const card = document.createElement("div");
+        card.classList.add('card');
+        card.innerText = myLibrary[i].info();
+        container.append(card);
+    }
+}
+
+displayBooks();
