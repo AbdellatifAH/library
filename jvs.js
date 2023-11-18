@@ -39,6 +39,7 @@ addBookToLibrary("A Song Of Ice And Fire", "George R.R. Martin", "698", "Yes");
 function displayBooks() {
 
     const container = document.querySelector(".container");
+    container.textContent = '';
     myLibrary.forEach((book) => {
         const card = document.createElement("div");
         const display = document.createElement("div");
@@ -62,31 +63,6 @@ function displayBooks() {
 }
 
 
-function displayBook() {
-
-    const container = document.querySelector(".container");
-    const card = document.createElement("div");
-    const display = document.createElement("div");
-    const deleteBtn = document.createElement("button");
-    const readBtn = document.createElement("button");
-    const index = myLibrary.length - 1;
-    readBtn.innerText = "Read";
-    readBtn.addEventListener('click', () => {
-        myLibrary[index].changeReadStatus();
-        display.innerHTML = myLibrary[index].info();
-    });
-    deleteBtn.innerText = "Delete Book";
-    deleteBtn.dataset.title = myLibrary[index].title;
-    deleteBtn.addEventListener('click', deleteBook);
-    card.classList.add('card');
-    display.innerHTML = myLibrary[index].info();
-    container.append(card);
-    card.append(display);
-    card.append(deleteBtn);
-    card.append(readBtn);
-
-}
-
 function deleteBook() {
 
     myLibrary.splice(this.dataset.title, 1);
@@ -100,7 +76,7 @@ showButton.addEventListener("click", () => {
 
 confirmBtn.addEventListener("click", (e) => {
     addBookToLibrary(title.value, author.value, pages.value, read.value);
-    displayBook();
+    displayBooks();
     e.preventDefault();
     favDialog.close();
     form.reset();
